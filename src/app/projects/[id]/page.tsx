@@ -3,7 +3,11 @@
 import HeaderTitle from "@/components/atoms/header-title/header-title";
 import Menu from "@/components/molecules/menu/menu";
 
-export default function Project({ params }) {
+interface ProjectParams {
+  id: string;
+}
+
+export default function Project({ params }: { params: ProjectParams }) {
   return (
     <>
       <Menu currentPage="/projects" />
