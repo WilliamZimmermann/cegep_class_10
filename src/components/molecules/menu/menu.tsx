@@ -1,7 +1,11 @@
 import MenuItem from "@/components/atoms/menu-item/menu-item";
 
+interface MenuProps {
+  currentPage: string;
+}
+
 /* eslint-disable @next/next/no-img-element */
-export default function Menu() {
+export default function Menu(props: MenuProps) {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -22,9 +26,26 @@ export default function Menu() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <MenuItem label="Home" linkTo="/" />
-              <MenuItem label="About" linkTo="/about" />
-              <MenuItem label="Contact" linkTo="/contact" />
+              <MenuItem
+                label="Home"
+                linkTo="/"
+                isActive={props.currentPage === "/"}
+              />
+              <MenuItem
+                label="About"
+                linkTo="/about"
+                isActive={props.currentPage === "/about"}
+              />
+              <MenuItem
+                label="Projects"
+                linkTo="/projects"
+                isActive={props.currentPage === "/projects"}
+              />
+              <MenuItem
+                label="Contact"
+                linkTo="/contact"
+                isActive={props.currentPage === "/contact"}
+              />
             </ul>
           </div>
         </div>

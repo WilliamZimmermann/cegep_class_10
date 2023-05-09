@@ -1,12 +1,13 @@
+"use client";
+
 import HeaderTitle from "@/components/atoms/header-title/header-title";
 import Menu from "@/components/molecules/menu/menu";
 
-/* eslint-disable @next/next/no-img-element */
-export default function About() {
+export default function Project({ params }) {
   return (
     <>
-      <Menu currentPage="/about" />
-      <HeaderTitle title="About" />
+      <Menu currentPage="/projects" />
+      <HeaderTitle title={`My Project ${params.id}`} />
     </>
   );
 }

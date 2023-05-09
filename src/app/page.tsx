@@ -1,63 +1,53 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
+import Card from "@/components/molecules/card/card";
 import styles from "./page.module.css";
+import Menu from "@/components/molecules/menu/menu";
+import HeaderTitle from "@/components/atoms/header-title/header-title";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className="container mt-3">
-        <h1>Bienvenue sur ma page Bootstrap</h1>
-        <p>Cette page est créée avec Bootstrap.</p>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-4">
-            <div className="card">
-              <img src="/assets/dog.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the cards content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
+    <>
+      <Menu currentPage="/" />
+      <main className={styles.main}>
+        <HeaderTitle
+          title="Welcome to my Home Page!"
+          subtitle="This is my page"
+        />
+        <div className="container">
+          <div className="row">
+            <div className="col-4">
+              <Card
+                title="Card title"
+                imageSrc="/assets/dog.jpg"
+                content="Some quick example text to build on the card title and make
+                    up the bulk of the cards content."
+                buttonText="Visit my Project"
+                buttonUrl="/about"
+              />
             </div>
-          </div>
-          <div className="col-4">
-            <div className="card">
-              <img src="/assets/woman.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the cards content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
+            <div className="col-4">
+              <Card
+                title="Card title 2"
+                imageSrc="/assets/woman.jpg"
+                content="Some quick example text to build on the card title and make
+                    up the bulk of the cards content."
+                buttonText="Visit my Other Project"
+                buttonUrl="/about"
+              />
             </div>
-          </div>
-          <div className="col-4">
-            <div className="card">
-              <img src="/assets/man.jpg" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the cards content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
+            <div className="col-4">
+              <Card
+                title="Card title 3"
+                imageSrc="/assets/man.jpg"
+                content="Some quick example text to build on the card title and make
+                    up the bulk of the cards content."
+                buttonText="Visit my Other Project"
+                buttonUrl="/about"
+              />
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
