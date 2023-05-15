@@ -1,5 +1,5 @@
 import HeaderTitle from "@/components/atoms/header-title/header-title";
-import Card from "@/components/molecules/card/card";
+import Card from "@/components/molecules/my-card/my-card";
 import Menu from "@/components/molecules/menu/menu";
 
 export default function Projects() {
