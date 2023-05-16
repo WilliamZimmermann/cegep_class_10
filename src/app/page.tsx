@@ -3,22 +3,20 @@
 /* eslint-disable @next/next/no-img-element */
 import MyCard from "@/components/molecules/my-card/my-card";
 import styles from "./page.module.css";
-import Menu from "@/components/molecules/menu/menu";
 import HeaderTitle from "@/components/atoms/header-title/header-title";
 import { Container, Grid } from "@mui/material";
 
 export default function Home() {
   return (
     <>
-      <Menu currentPage="/" />
       <main className={styles.main}>
-        <HeaderTitle
-          title="Welcome to my Home Page!"
-          subtitle="This is my page"
-        />
         <Container>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={6} lg={4}>
+          <HeaderTitle
+            title="Welcome to my Home Page!"
+            subtitle="This is my page"
+          />
+          <Grid container spacing={4}>
+            <Grid item xs={12} sm={6} md={4} lg={4}>
               <MyCard
                 title="Card title"
                 imageSrc="/assets/dog.jpg"
@@ -28,7 +26,7 @@ export default function Home() {
                 buttonUrl="/about"
               />
             </Grid>
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item xs={12} sm={6} md={4} lg={4}>
               <MyCard
                 title="Card title 2"
                 imageSrc="/assets/woman.jpg"
@@ -38,7 +36,7 @@ export default function Home() {
                 buttonUrl="/about"
               />
             </Grid>
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item xs={12} sm={6} md={4} lg={4}>
               <MyCard
                 title="Card title 3"
                 imageSrc="/assets/man.jpg"

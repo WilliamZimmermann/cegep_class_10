@@ -20,7 +20,7 @@ interface CardProps {
 export default function MyCard(props: CardProps) {
   return (
     <>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card>
         <CardMedia
           sx={{ height: 140 }}
           image={props.imageSrc}

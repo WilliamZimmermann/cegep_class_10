@@ -1,3 +1,5 @@
+import { Box } from "@mui/material";
+
 export interface HeaderTitleProps {
   title: string;
   subtitle?: string;
@@ -6,10 +8,14 @@ export interface HeaderTitleProps {
 export default function HeaderTitle(props: HeaderTitleProps) {
   return (
     <>
-      <div className="container mt-3">
-        <h1>{props.title}</h1>
+      <Box
+        sx={{
+          marginTop: 3,
+        }}
+      >
+        <Box component="h1">{props.title}</Box>
         {props.subtitle && <p>{props.subtitle}</p>}
-      </div>
+      </Box>
     </>
   );
 }

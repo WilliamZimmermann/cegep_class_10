@@ -1,6 +1,6 @@
 import HeaderTitle from "@/components/atoms/header-title/header-title";
 import Card from "@/components/molecules/my-card/my-card";
-import Menu from "@/components/molecules/menu/menu";
+import Menu from "@/components/molecules/my-menu/my-menu";
 
 export default function Projects() {
   return (

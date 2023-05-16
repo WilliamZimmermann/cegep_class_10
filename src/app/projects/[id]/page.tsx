@@ -1,7 +1,7 @@
 "use client";
 
 import HeaderTitle from "@/components/atoms/header-title/header-title";
-import Menu from "@/components/molecules/menu/menu";
+import Menu from "@/components/molecules/my-menu/my-menu";
 
 interface ProjectParams {
   id: string;
