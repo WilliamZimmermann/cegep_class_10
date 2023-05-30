@@ -1,7 +1,12 @@
+"use client";
+
+/* eslint-disable react-hooks/exhaustive-deps */
 import { MyAppContext } from "@/context/my-app.provider";
 import { Button, Grid, TextField } from "@mui/material";
 import React, { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 interface ContactFormInputs {
   name: string;
@@ -10,6 +15,15 @@ interface ContactFormInputs {
   message: string;
 }
 
+const schema = yup
+  .object({
+    name: yup.string().required(),
+    email: yup.string().email().required(),
+    subject: yup.string().required(),
+    message: yup.string().required(),
+  })
+  .required();
+
 export default function ContactForm() {
   const myApp = useContext(MyAppContext);
 
@@ -17,8 +31,10 @@ export default function ContactForm() {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
-  } = useForm<ContactFormInputs>();
+    formState: { errors, isValid },
+  } = useForm<ContactFormInputs>({
+    resolver: yupResolver(schema),
+  });
 
   function onFormSubmit(data: ContactFormInputs) {
     console.log(data);
@@ -37,6 +53,10 @@ export default function ContactForm() {
             label="Name"
             variant="outlined"
             fullWidth
+            value={myApp.name}
+            required
+            error={!!errors.name}
+            helperText={errors.name?.message}
             {...register("name")}
           />
         </Grid>
@@ -46,6 +66,9 @@ export default function ContactForm() {
             label="E-mail"
             variant="outlined"
             fullWidth
+            required
+            error={!!errors.email}
+            helperText={errors.email?.message}
             {...register("email")}
           />
         </Grid>
@@ -55,6 +78,9 @@ export default function ContactForm() {
             label="Subject"
             variant="outlined"
             fullWidth
+            required
+            error={!!errors.subject}
+            helperText={errors.subject?.message}
             {...register("subject")}
           />
         </Grid>
@@ -65,11 +91,14 @@ export default function ContactForm() {
             variant="outlined"
             multiline
             fullWidth
+            required
+            error={!!errors.message}
+            helperText={errors.message?.message}
             {...register("message")}
           />
         </Grid>
         <Grid item sm={12}>
-          <Button variant="contained" type="submit">
+          <Button variant="contained" type="submit" disabled={!isValid}>
             Send
           </Button>
         </Grid>
