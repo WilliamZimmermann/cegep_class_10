@@ -1,11 +1,11 @@
+"use client";
+
 import HeaderTitle from "@/components/atoms/header-title/header-title";
 import Card from "@/components/molecules/my-card/my-card";
-import Menu from "@/components/molecules/my-menu/my-menu";
 
 export default function Projects() {
   return (
     <>
-      <Menu currentPage="/projects" />
       <HeaderTitle title="Projects" subtitle="Take a look at my projects" />
       <div className="container">
         <div className="row">
