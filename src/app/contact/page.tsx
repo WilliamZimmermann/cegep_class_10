@@ -1,9 +1,13 @@
 "use client";
 
 import HeaderTitle from "@/components/atoms/header-title/header-title";
+import { MyAppContext } from "@/context/my-app.provider";
 import { Button, Container, Grid, TextField } from "@mui/material";
+import { useContext } from "react";
 
 export default function Contact() {
+  const myApp = useContext(MyAppContext);
+
   return (
     <>
       <Container>
@@ -13,7 +17,15 @@ export default function Contact() {
         />
         <Grid container rowSpacing={3}>
           <Grid item sm={12}>
-            <TextField id="name" label="Name" variant="outlined" fullWidth />
+            <TextField
+              id="name"
+              label="Name"
+              variant="outlined"
+              onChange={(e) => {
+                myApp.setName(e.target.value);
+              }}
+              fullWidth
+            />
           </Grid>
           <Grid item sm={12}>
             <TextField id="email" label="E-mail" variant="outlined" fullWidth />
