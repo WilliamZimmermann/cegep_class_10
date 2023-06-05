@@ -12,6 +12,8 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { ApplicationContext } from "@/context/application.provider";
 
 interface MenuItem {
   label: string;
@@ -26,6 +28,8 @@ const pages: MenuItem[] = [
 ];
 
 export default function MyMenu() {
+  const applicationContext = useContext(ApplicationContext);
+
   const router = useRouter();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -142,7 +146,11 @@ export default function MyMenu() {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Box>Hi [Your name here]!</Box>
+            {applicationContext.name ? (
+              <Box>Hi {applicationContext.name}!</Box>
+            ) : (
+              <Box>Hi Guest!</Box>
+            )}
           </Box>
         </Toolbar>
       </Container>

@@ -17,7 +17,7 @@ export const ApplicationContext = createContext<ApplicationContextProps>(
 );
 
 export default function ApplicationProvider({ children }: Props) {
-  const [name, setName] = useState<string>("");
+  const [name, setName] = useState<string>("William");
 
   return (
     <ApplicationContext.Provider value={{ name, setName }}>

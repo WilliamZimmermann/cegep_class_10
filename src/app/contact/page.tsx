@@ -5,6 +5,8 @@ import { Button, Container, Grid, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useContext, useEffect } from "react";
+import { ApplicationContext } from "@/context/application.provider";
 
 const schema = yup
   .object({
@@ -23,6 +25,8 @@ interface ContactForm {
 }
 
 export default function Contact() {
+  const applicationContext = useContext(ApplicationContext);
+
   const {
     register,
     handleSubmit,
@@ -33,6 +37,10 @@ export default function Contact() {
   function onFormSubmit(data: ContactForm) {
     console.log(data);
   }
+
+  useEffect(() => {
+    console.log("Application Context Name: ", applicationContext.name);
+  }, [applicationContext.name]);
 
   return (
     <>
