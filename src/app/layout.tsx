@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Script from "next/script";
 import MyMenu from "@/components/molecules/my-menu/my-menu";
+import { ApplicationContext } from "@/context/application.provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <MyMenu />
-        {children}
+        <ApplicationContext>
+          <>
+            <MyMenu />
+            {children}
+          </>
+        </ApplicationContext>
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" />
       </body>
     </html>
