@@ -60,7 +60,7 @@ export default function ContactForm() {
     <>
       <Container>
         <HeaderTitle
-          title="Contact"
+          title="Contact Page"
           subtitle="Cette page est créée avec Material UI."
         />
         <form onSubmit={handleSubmit(onFormSubmit)}>
