@@ -34,7 +34,7 @@ export default async function RootLayout({
     translations = (await import(`../../languages/${params.locale}.json`))
       .default;
   } catch (error) {
-    notFound();
+    translations = (await import(`../../languages/en.json`)).default;
   }
 
   return (

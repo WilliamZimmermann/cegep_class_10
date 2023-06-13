@@ -1,3 +1,11 @@
 {
-  "page-title": "Hello World!"
+  "common": {
+    "save-btn": "Save"
+  },
+  "home": {
+    "page-title": "Home"
+  },
+  "about": {
+    "page-title": "About"
+  }
 }
