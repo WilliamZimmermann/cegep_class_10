@@ -1,7 +1,5 @@
 "use client";
 
-import HeaderTitle from "@/components/atoms/header-title/header-title";
-import { Button, Container, Grid, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -9,6 +7,7 @@ import { useContext, useEffect } from "react";
 import { ApplicationContext } from "@/context/application.provider";
 import ContactProvider from "@/context/contact.provider";
 import ContactForm from "@/components/organisms/contact-form";
+import { useTranslations } from "next-intl";
 
 const schema = yup
   .object({

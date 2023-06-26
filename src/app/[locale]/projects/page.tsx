@@ -2,8 +2,11 @@
 
 import HeaderTitle from "@/components/atoms/header-title/header-title";
 import Card from "@/components/molecules/my-card/my-card";
+import { useTranslations } from "next-intl";
 
 export default function Projects() {
+  const t = useTranslations();
+
   return (
     <>
       <HeaderTitle title="Projects" subtitle="Take a look at my projects" />
